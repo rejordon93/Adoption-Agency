@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block content %}
+<h1>{{ pet.name }}</h1>
+<h2>{{ pet.species }}</h2>
+{% if pet.photo_url %}
+<img src="{{ pet.photo_url }}" alt="{{ pet.name }}" />
+{% endif %} {% if pet.age %}
+<p>{{ pet.age }} years old</p>
+{% endif %}
+<form method="POST" action="">
+  {{ form.hidden_tag() }}
+  <div>
+    <label for="photo_url">Photo URL:</label>
+    {{ form.photo_url() }}
+  </div>
+  <div>
+    <label for="notes">Notes:</label>
+    {{ form.notes() }}
+  </div>
+  <div>
+    <label for="available">Available:</label>
+    {{ form.available() }}
+  </div>
+  <input type="submit" value="Save Changes" />
+</form>
+{% endblock %}
